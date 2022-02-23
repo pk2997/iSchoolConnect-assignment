@@ -1,0 +1,3 @@
+[submodule "day2/day2/iSchoolConnect"]
+	path = day2/day2/iSchoolConnect
+	url = https://github.com/pk2997/iSchoolConnect-assignment

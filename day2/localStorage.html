@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        addEventListener("load", init);
+        function init(){
+            // console.log(navigator.onLine);
+           
+            document
+            .getElementsByTagName("button")[0]
+            .addEventListener("click", clickHandler);
+            //------------------------------------------
+            document
+            .getElementsByTagName("button")[1]
+            .addEventListener("click", getHandler);
+            document
+            .getElementsByTagName("button")[2]
+            .addEventListener("click",  removeEventListener);
+            document
+            .getElementsByTagName("button")[3]
+            .addEventListener("click", CloseEvent);
+
+        
+        }
+        
+        function clickHandler(){
+            // localStorage.user = ;
+            localStorage.setItem("user",document.getElementById("ti").value);
+        }
+        function getHandler(){
+           // console.log("User is : ", localStorage.user);
+           console.log(localStorage.getItem("user"));
+           console.log(localStorage.getItem("user").length);
+           var keyName=localStorage.key("user");
+          // console.log(localStorage.length); 
+           /*let nextvalue;
+           for(let i=0;i<localStorage.length;i++){
+               nextValue=localStorage.getItem(localStorage.key(i));
+           } */
+        }
+        function removeEventListener(){
+            console.log(localStorage.removeItem('user'));
+        }
+        function CloseEvent(){
+            localStorage.clear();
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="ti">
+    <button>Store User</button>
+    <hr>
+    <button>Get User Name</button>
+    <button>Remove user</button>
+    <button>Clear</button>
+</body>
+</html>
