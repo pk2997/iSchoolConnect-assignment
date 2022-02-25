@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span:nth-child(3n+4){
+            color: blue;
+        }
+        span:nth-child(3n-4){
+            color: rgb(240, 11, 49);
+        }
+        span{
+           padding: 5px;
+           border: 1px solid green;
+           display: inline-block;
+           margin-bottom: 3px;
+           background-color: aliceblue;
+        }
+    </style>
+</head>
+<body>
+    <h3>Nth-child(3n+4,3n-4)selection</h3>
+     <p> 3n+4=4,7,10 and are selected if (n=0,1,2) </p>
+     <p>3n-4=2,5,8 are selected if (n=2,3,4)</p>
+     <div>
+       <span>Span 1</span>
+       <span>Span 2</span>
+       <span>Span 3</span>
+       <span>Span 4</span>
+       <span>Span 5</span>
+       <span>Span 6</span>
+       <span>Span 7</span>
+       <span>Span 8</span>
+       <span>Span 9</span>
+       <span>Span 10</span>
+     </div> 
+</body>
+</html>

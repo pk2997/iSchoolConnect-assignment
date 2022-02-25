@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input[type="checkbox"]:checked {
+         border: 1px solid green;
+        }
+        div, select {
+            margin: 8px;
+        }
+        input:checked + label {
+           color: red;
+           border: 1px solid green;
+        }
+        input:enabled {
+           color: rgb(235, 29, 14);
+        }
+
+        input:disabled {
+           color: rgb(134, 130, 130);
+        }
+       
+        label{
+            display: inline-block;
+            
+            padding: 5px;
+        }
+        button{
+            margin-left: 150px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <form action="#" method="get">
+            <label for="name">Please enter your Name:</label>
+            <input type="text" id="name" value="" placeholder="FullName"><br>
+          <br>
+            <label for="regid">Registration Id:</label>
+            <input type="text" id="regid" value="RegId" disabled="disabled"><br>
+         <br>
+            <input type="checkbox" name="checkbox" id="chk">
+            <label for="chk">Please click on the checkbox</label>
+            <br>
+            <input type="button" value="Submit">
+        </form>
+      </div>
+</body>
+</html>
