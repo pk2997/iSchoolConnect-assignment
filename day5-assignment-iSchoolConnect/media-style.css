@@ -1,0 +1,58 @@
+@media screen and (min-width: 1024px) {
+    article{
+    background-color: rgb(233, 101, 49);
+    width: 90px;
+    height: 100px;
+    text-align: center;
+    line-height: 100px;
+    font-size: 26px;
+    font-weight: bold;
+    font-family: 'Trebuchet MS';
+    float: left;
+    border: 2px groove green;
+
+    }
+    
+}
+
+@media screen and (min-width: 499px) and (max-width: 1023px) {
+    article{
+    background-color: rgb(46, 36, 184);
+    width: 90px;
+    height: 100px;
+    text-align: center;
+    line-height: 100px;
+    font-size: 26px;
+    font-weight: bold;
+    font-family: 'Trebuchet MS';
+    float: left;
+    border: 2px ridge rgb(128, 0, 21);
+
+
+    }
+    
+}
+@media screen and (max-width: 500px) {
+    article{
+    background-color: rgb(81, 243, 6);
+    width: 90px;
+    height: 100px;
+    text-align: center;
+    line-height: 100px;
+    font-size: 26px;
+    font-weight: bold;
+    font-family: 'Trebuchet MS';
+    float: left;
+    border: 2px dashed rgb(226, 33, 43);
+
+    }
+    
+}
+@media print {
+    article{
+        width: 100px;
+        height: 100px;
+        border: 2px solid red;
+        background-color: aqua;
+    }
+}
