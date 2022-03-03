@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+         addEventListener("load", init);
+        function init(){
+
+            document
+            .getElementsByTagName("button")[0]
+            .addEventListener("click", pushData);
+            //------------------------------------------
+            document
+            .getElementsByTagName("button")[1]
+            .addEventListener("click", popData);
+            document
+            .getElementsByTagName("button")[2]
+            .addEventListener("click",  shiftData);
+           
+            document
+            .getElementsByTagName("button")[3]
+            .addEventListener("click",  unshiftData);
+           
+            document
+            .getElementsByTagName("button")[4]
+            .addEventListener("click", concatData);
+            document
+            .getElementsByTagName("button")[5]
+            .addEventListener("click", joinData);
+            document
+            .getElementsByTagName("button")[6]
+            .addEventListener("click", allMethods);
+
+            document
+            .getElementsByTagName("button")[7]
+            .addEventListener("click", sliceData);
+
+            document
+            .getElementsByTagName("button")[8]
+            .addEventListener("click", spliceData);
+
+            document
+            .getElementsByTagName("button")[9]
+            .addEventListener("click", reverseData);
+
+            document
+            .getElementsByTagName("button")[10]
+            .addEventListener("click", sortData);
+
+            document
+            .getElementsByTagName("button")[11]
+            .addEventListener("click", toStringData);
+
+            document
+            .getElementsByTagName("button")[12]
+            .addEventListener("click", toLocaleStringData);
+
+        
+        }
+
+
+        
+function pushData(){
+        const fruits = ['Apple', 'Banana'];
+        const newLength = fruits.push('Orange');
+        console.log(fruits);
+        console.log(newLength);
+}
+
+function popData(){
+    const fruits = ['Apple', 'Banana'];
+    const removedItem = fruits.pop();
+    console.log(fruits);
+    console.log(removedItem);
+}
+
+function shiftData(){
+    const fruits = ['Apple', 'Banana'];
+    const removedItem = fruits.shift();
+    console.log(fruits);
+    console.log(removedItem);
+}
+
+
+function unshiftData(){
+    const fruits = ['Apple', 'Banana'];
+    const shiftedvalue = fruits.unshift('cherry');
+    console.log(fruits);
+    console.log(shiftedvalue);
+}
+
+function concatData(){
+    const arr1 = ['a', 'b', 'c'];
+    const arr2 = ['1', '2', '3'];
+    const arr3 = arr1.concat(arr2);
+    console.log(arr3);
+}
+
+function joinData(){
+    const arr1 = ['a', 'b', 'c'];
+    const arr2 = ['1', '2', '3'];
+    const add = arr1.join();
+    console.log(add);
+}
+
+function allMethods(){
+    const arr1 = ['a', 'b', 'c'];
+    const arr2 = ['1', '2', '3'];
+//merge two arrays two create the third
+    const arr3 = arr1.concat(arr2);
+    console.log(arr3);
+
+//add the value at the last
+    const newlength=arr1.push('d');
+    console.log(newlength);
+
+//removes the last value
+    const removedItem = arr2.pop();
+    console.log(removedItem);
+
+//removes the value in the first
+    const remove = arr1.shift();
+    console.log(remove);
+
+//add the value in the first
+    arr2.unshift('6');
+    console.log(arr2);
+
+//convert array to string join
+    const add=arr1.join();
+    console.log(add);
+}
+
+function sliceData(){
+    const arr1 = ['apple' , 'mango', 'banana', 'cherry', 'orange', 'lemon'];
+    console.log(arr1.slice(2, 4));
+    console.log(arr1.slice(2));
+}
+
+function spliceData(){
+    const months = ['Jan', 'March', 'April', 'June'];
+    months.splice(1, 1, 'Feb');
+    console.log(months);
+
+    months.splice(4, 1, 'May');
+    console.log(months);
+
+}
+
+function reverseData(){
+    const arr = ['Jan', 'Feb', 'March'];
+    console.log('arr:', arr);
+    const reversed = arr.reverse();
+    console.log('reversed:', reversed);
+    //reverse changes the original array
+    console.log('arr:', arr);
+}
+
+function sortData(){
+    const arr1 = ['apple' , 'mango', 'banana', 'cherry', 'orange', 'lemon'];
+    console.log(arr1.sort());
+}
+
+function toStringData(){
+    const array1 = [1, '2@3', 'a', '1a'];
+    console.log(array1.toString()); 
+
+}
+
+function toLocaleStringData(){
+    const array1 = [1, 'a', new Date('21 Dec 1997 14:12:00 UTC')];
+    const localeString = array1.toLocaleString('en', { timeZone: 'UTC' });
+
+    console.log(localeString);
+}
+    </script>
+</head>
+<body>
+     
+    <hr>
+    
+    <button>push</button>
+    <button>pop</button>
+    <button>shift</button>
+    <button>Unshift</button>
+    <button>concat</button>
+    <button>join</button>
+    <button>All Methods</button>
+    <hr>
+    <button>Slice</button>
+    <button>Splice</button>
+    <button>Reverse</button>
+    <button>Sort</button>
+    <button>toString</button>
+    <button>toLocaleString</button>
+</body>
+</html>
