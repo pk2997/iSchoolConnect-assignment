@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        Canvas {
+            display: block;
+            border: 1px solid rgb(226, 62, 12);
+            margin-top: 10px;
+            margin-left: 20px;
+            border-radius: 5px;
+            box-shadow: 2px 5px 3px greenyellow;
+            padding: 20px;
+            background-image: linear-gradient(180deg, red, blue);
+        }
+    </style>
+    <script>
+        addEventListener("load", init);
+        var can, ctx;
+        function init() {
+
+            can = document.getElementById("can");
+            ctx = can.getContext("2d");
+            can.width = 800;
+            can.height = 500;
+        }
+
+
+
+
+        function drawArc(){
+            ctx.fillStyle = "rgba(255, 165, 0, 1)";
+            for (let i = 0; i < 10; i++) {
+            ctx.beginPath();
+            ctx.arc(Math.random() * 800, Math.random() * 600, Math.random() * 20, 0, 2 * Math.PI);
+            ctx.fill();
+            }
+        }
+
+        function star(){
+            ctx.fillStyle = "#c8b7dc";
+            ctx.beginPath();
+            ctx.moveTo(108, 0.0);
+            ctx.lineTo(141, 70);
+            ctx.lineTo(218, 78.3);
+            ctx.lineTo(162, 131);
+            ctx.lineTo(175, 205);
+            ctx.lineTo(108, 170);
+            ctx.lineTo(41.2, 205);
+            ctx.lineTo(55, 131);
+            ctx.lineTo(1, 78);
+            ctx.lineTo(75, 68);
+            ctx.lineTo(108, 0);
+            ctx.closePath();
+            ctx.fill();
+        }
+
+        function input() {
+            var name = document.getElementById("mytext").value;
+            var birthdate = document.getElementById("dob").valueAsNumber;
+
+            let now = new Date();
+            let diff = Math.abs(now-birthdate);
+            const age = Math.floor(diff / (1000*60*60*24*365));
+
+            let msg = "Wishing " + name + " on your " + age + "th birthday";
+            return msg;
+        }
+
+        function print1() {
+            let msg = input();
+            var gradient = ctx.createLinearGradient(0, 0, can.width, 0);
+            gradient.addColorStop("0"," white");
+            gradient.addColorStop("0.5", "red");
+            gradient.addColorStop("1.0", "white");
+            // Fill with gradient
+            ctx.fillStyle = gradient;
+            //ctx.fillStyle = "#c8b7dc";
+            
+            ctx.font = "30px Helvetica bold";
+            ctx.fillText(msg, 135, 250);
+
+        }
+
+        function getCard() {
+            print1();
+            drawArc();
+           
+            ctx.stroke();
+        }
+        function getStar(){
+            star();
+            ctx.stroke();
+        }
+    </script>
+</head>
+
+<body>
+    <label for="name">Name</label>
+    <input type="text" id="mytext">
+    <label for="dob">Date Of Birth</label>
+    <input type="date" name="" id="dob">
+    <button type="button" id="mybutton" onclick="getCard()">Create Card</button>
+<button onclick="getStar()">Add Star</button>
+    <canvas id="can"></canvas>
+</body>
+
+</html>
