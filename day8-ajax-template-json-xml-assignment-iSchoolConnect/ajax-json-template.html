@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax</title>
+    <style>
+        #log{
+            width: 990px;
+            height: 550px;
+            background-color: rgb(135, 145, 145);
+            margin: auto;
+            border: 1px solid black;
+            color: aliceblue;
+            overflow: auto;
+
+        }
+        button{
+            width:300px; 
+            display: block;
+            background-color: lightblue;  
+            color: black;  
+            font-size: 16px;  
+            margin: 10px auto;
+            font-family: Arial, Helvetica, sans-serif;  
+            
+        }
+        .box{
+            float: left;
+            margin: 10px;
+            width: 300px;
+            background-color: rgb(171, 177, 177);
+        }
+        .box img{
+            width: 300px;
+        }
+        .box h1{
+            margin: 0px;
+            padding: 10px;
+            text-align: center;
+            font-family: 'Trebuchet MS';
+            background-color: rgb(214, 214, 86);
+            color: black;
+        }
+        .box h2,h3{
+            margin: 0px;
+            text-align: center;
+            padding: 5px;
+            font-family: 'Trebuchet MS';
+            font-size: 18px;
+            color: rgb(192, 13, 13);
+
+        }
+    </style>
+     <script>
+         var xhr = new XMLHttpRequest();
+         xhr.onreadystatechange= function(){
+             console.log("Read State value: ", xhr.readyState);
+             if(xhr.status == 200 && xhr.readyState == 4){
+                var herodata = JSON.parse(xhr.responseText).herolist;
+                console.log(herodata.length);
+                     for(var i=0; i< herodata.length; i++){
+                        document.getElementById("log").innerHTML += "<div class='box'><h1>" 
+                        +herodata[i].title+"</h1><h2>First Name: "
+                        +herodata[i].firstname+"</h2><h2> Last Name :"
+                        +herodata[i].lastname+"</h2><h3>Gender: "
+                        +herodata[i].gender+"</h3><img src='"
+                        +herodata[i].poster+"' alt='"
+                        +herodata[i].title+"'><h3>City: "
+                        +herodata[i].city+"</h3><h3>Ticket Price: "
+                        +herodata[i].ticketprice+"</h3><h3>Release Date: "
+                        +herodata[i].releasedate+"</h3></div>";
+                    // console.log(xhr.responseText)
+                     //document.getElementById("hl").innerHTML += "<li>" +hero[i].getElementsByTagName("title")[0].firstChild.nodeValue+"</li>";
+                 //document.getElementById("hl").innerHTML += "<li>"+hero[i].querySelector("title").innerHTML+"</li>";
+                    }
+                 }else{
+                     console.log(xhr.readyState);
+                 }
+         };
+         document.addEventListener("DOMContentLoaded", function(){
+            
+             document.getElementsByTagName("button")[0].onclick = function(){
+                xhr.open("get","data.json",true);
+                xhr.send();
+             }
+         })
+     </script>
+</head>
+<body>
+    <button>Fetch Data</button>
+    <div id="log"></div>
+   
+</body>
+</html>
